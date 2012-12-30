@@ -1,0 +1,41 @@
+/* 
+ * Footer
+ */
+.moo-footer {
+    color: $color-footer-text;    
+    background-color: $color-bg-footer-bar;
+    border: 1px solid $color-border-main;
+    padding: 0;
+    nav.app {
+        float: none;
+        display: table;
+        border-spacing: 1em .5em;
+        width: 100%;
+    }
+    nav {
+        a {
+            background-color: transparent;
+            border: none;
+            color: $color-footer-text;
+            font-size: 1em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+    }
+
+    text-align: left;
+    z-index: 9999; 
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: .5em 1em;
+    nav {
+        text-align: center;
+        a {
+            display: inline-block;
+            font-size: 1.4em;
+            padding: .3em 1.5em;
+        }
+    }
+}

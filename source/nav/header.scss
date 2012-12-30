@@ -1,0 +1,203 @@
+$header-height-l: 50px;
+$header-height-m: 60px;
+$header-height-h: 80px;
+
+@mixin headerHeightFontSize() {
+    $ratio: 2.3;
+    @media screen and ( max-width: 480px )    {
+        font-size: $header-height-l/$ratio;
+    }
+    @media screen and ( max-width: 1023px )    {
+        font-size: $header-height-m/$ratio;
+    }    
+    @media screen and ( min-width: 1024px )    {
+        font-size: $header-height-h/$ratio
+    }    
+}
+
+@mixin headerHeight() {
+    @media screen and ( max-width: 480px )    {
+        height: $header-height-l;
+    }
+    @media screen and ( max-width: 1023px )    {
+        font-size: $header-height-m;
+    }    
+    @media screen and ( min-width: 1024px )    {
+        font-size: $header-height-h
+    }    
+}
+
+@mixin headerPadding() {
+    
+    @media screen and ( max-width: 480px )    {
+        padding: $header-height-l/5 $header-height-l/3.5;
+    }
+    @media screen and ( max-width: 1023px )    {
+        padding: $header-height-m/6.25 $header-height-m/3.5;
+    }    
+    @media screen and ( min-width: 1024px )    {
+        padding: $header-height-h/4.25 $header-height-h/3.5;
+    }   
+}
+
+// Header
+
+@mixin moo-header(
+
+    $class: '.moo-header',
+    $navDisplay: inline
+    ){
+
+    #{$class} {
+    
+    
+        color: $color-header-text;    
+        background-color: $color-bg-header-bar;
+        
+        @media screen and ( max-width: 480px )    {
+            height: $header-height-l;
+        }
+        @media screen and ( max-width: 1023px )    {
+            height: $header-height-m;
+        }    
+        @media screen and ( min-width: 1024px )    {
+            height: $header-height-h;
+        }    
+    
+        // Nav back button       
+        .moo-nav-back {
+            opacity: 0;
+            @include transition(opacity, .5s);    
+            &.moo-visible {
+                opacity: 1;    
+            }
+         }
+        
+    
+        h1 {
+        
+            @include headerHeightFontSize();
+            @include float-left;
+            letter-spacing: -1pt;
+            font-weight: lighter;
+            line-height: 1.5;
+            text-align: center;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;       
+    
+            @media screen and ( max-width: 480px )    {
+                margin: $header-height-l/5.5 0 0 0;
+            }
+            @media screen and ( max-width: 1023px )    {
+                margin: $header-height-m/5.5 0 0 0;
+            }    
+            @media screen and ( min-width: 1024px )    {
+                margin: $header-height-h/5.5 0 0 0;
+            }    
+            padding: 0 4em;
+            width: 100%;
+        
+            text-align: left;
+            z-index: 9999; 
+            position: fixed;
+            top:0;
+            width: 100%;
+            padding: .6em 1em;
+            nav {
+                position: absolute;
+                margin-top: 0;
+                top: 1.6em;
+                left: 1.5em;
+            }
+            nav a {
+                padding: .5em 1em;
+                font-size: 1.5em;            
+                width: auto;
+                @if $navDisplay == inline {
+                    display: inline;                
+                } @else {
+                    float: left;
+                    display: block;
+                }
+            }
+        }        
+    }
+}
+
+
+/*
+ * Header default style
+ */
+@mixin moo-header-style(
+        $context: ios,
+        $class: '.moo-header'
+    ){
+
+    #{$class} {
+
+        padding: 0;
+        
+        @if $context == ios {
+            background: url(../img/bg/header.png);
+            box-shadow: rgba(0, 0, 0, 0.2) -1px 2px 3px 0px;
+
+            h1 {
+                text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.4);
+            }
+
+            .moo-header-wrapper {
+                @include headerHeight();
+                box-shadow: black 0px -2px 10px -7px inset;
+            }
+
+        }
+        
+        nav {
+            @include float-left;
+            padding: 0 .5em 0 1em;
+            position: absolute;
+            top: auto;
+            left: auto;
+            a {
+                background-color: $nav-bg-color;
+                color: $nav-text-color;
+                @include border-radius(.35em);
+                line-height: 1.75;
+                font-size: 1.1em;
+                font-weight: 700;
+                padding: .5em 1em;
+                @include headerHeight();
+            }
+            &.app {
+                top: 0;
+                right: 0;
+                padding: .65em .5em;
+                margin: 0;
+                a {
+                    line-height: 1.2;
+                }
+            }
+        }   
+    }
+}
+
+
+ 
+/* 
+ * Hidden header
+ */
+
+// This style vissually hides the header without removing it from the DOM. 
+// 1. Fix to overwrite .hidden generic class
+// 2. Prevents using nav when header is hidden
+
+.moo-header.hidden {
+    display: block; // 1
+    opacity: 0;
+    nav {
+        top: -9999em !important; // 2
+    }
+}
+
+

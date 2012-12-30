@@ -9,23 +9,23 @@
 @import "normalize";
 
 // Global variables
-@import "base/globals/colors";
-@import "base/globals/text";
+@import "globals/colors";
+@import "globals/text";
 
 // Mootor plugins
 @import "mootor.nav";
 @import "mootor.ui";
 
 // shared elements
-@import "base/shared/sprites-ui";
+@import "shared/sprites-ui";
 
 // General
-@import "base/shared/layout";
-@import "base/shared/nav";
+@import "shared/layout";
+@import "shared/nav";
 
-@import "base/shared/forms";
+@import "shared/forms";
 
-@import "base/shared/utilities";
+@import "shared/utilities";
 
 
 

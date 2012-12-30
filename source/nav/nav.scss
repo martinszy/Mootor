@@ -1,0 +1,89 @@
+// Navigation plugin
+
+@import "mootor.nav.header";
+@import "mootor.nav.footer";
+
+@mixin base-anchor {
+    text-decoration: none ;
+}
+
+body, html {
+    height: 100%;
+    background: #ccc;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    max-width: 100%;
+    width: 100%;
+    max-height: 100%;
+}
+
+// Navigation
+
+nav {
+    ul, 
+    ol {
+        list-style: none;
+    }
+    
+    a {
+        font-size: 2.5em;
+        color: $color-text-main;
+        text-decoration: none;
+        text-align: left;
+        display: block;
+        padding: 1em;
+    }   
+}
+
+// Navigation buttons
+
+.moo-nav-buttons {
+    padding: .5em 1.5em;
+    position: relative;
+}
+
+
+// Back button
+
+.moo-nav-back {
+    @extend .moo-nav-buttons;
+    &:before {
+        content: ' ';
+        display: block;
+    }
+}
+
+// Next button
+
+.moo-nav-next {
+    @extend .moo-nav-buttons;
+    margin: 0 1em 0 0;
+    &:after {
+        content: ' ';
+        display: block;
+    }
+}
+
+
+// App buttons
+
+.app-buttons {
+    line-height: 2.5;
+    text-indent: -9999px;
+    padding: .75em 1em;
+    position: relative;
+    &:before {
+        content: " ";
+        display: block;
+    }
+}
+
+nav.app {
+    float: right;
+    left: auto;
+    height: 100%;
+    .moo-nav {
+        @extend .app-buttons;
+    }
+}
+
