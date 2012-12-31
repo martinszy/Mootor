@@ -3,13 +3,19 @@
 // -----------------------------------------------------------------------------------
 
 @mixin list(
+
     $has-image:false, 
     $rounded:false, 
     $color-bg: #f0f0f0, 
     $border-top: #f5f5f5, 
     $border-bottom: #DDD, 
     $color-bg-rounded: #FFF, 
-    $color-border-rounded: #CCC) {
+    $color-border-rounded: #CCC,
+    $color-list-background: transparent,
+    $color-border-top: transparent,
+    $color-border-bottom: transparent,
+    $shadows: false) {
+
     li {
         background-color: $color-list-background;
         border-top: 1px solid $color-border-top;
@@ -46,6 +52,13 @@
             border: 1px solid $color-border-rounded;
             @include border-radius(9px);
             margin: 1em;
+        }
+    }
+    
+    @if $shadows {
+        li {
+            border: 0;
+            box-shadow: #bbb 3px 2px 4px -2px, #eee -2px -1px 1px 0px;
         }
     }
 }

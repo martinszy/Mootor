@@ -1,12 +1,13 @@
-// App color swatches
+/*
+ * App color swatches
+ */ 
 
+// Main palette
 
-// main palette
 $color-main: #10155E;
 $color-accent: #EE3124;
 $light-neutral: #F0F0F0;
 $dark-neutral: #181A1B;
-
 
 // Basic color variables
 
@@ -15,6 +16,7 @@ $color-bg-alt: $dark-neutral;
 $color-bg-action: lighten($color-main, 30%);
 $color-bg-accent: lighten($color-accent, 30%);
 
+// Text
 
 $color-text-strong: darken($color-main, 8%);
 $color-text-titles: $dark-neutral;
@@ -27,19 +29,41 @@ $color-text-action: lighten($color-main, 15%);
 $color-text-accent: $color-accent;
 
 
+// Borders
+
 $color-border-main: $dark-neutral;
 $color-border-alt: $light-neutral;
 $color-border-action: darken($color-main, 10%);
 $color-border-accent: darken($color-accent, 20%);
 
 
+// Forms
 
 $color-border-forms: lighten($color-border-main, 70%);
 $color-bg-forms:  lighten($color-bg-main, 4%);
 $color-label-forms:  lighten($color-text-action, 4%);
 
+// Header
 
-// Deprecated: this swatches are deprecated and will soon disappear! DO NOT USE THEM.
+$color-bg-header-bar: desaturate(lighten($color-main, 5%), 12%);
+$color-header-text: $color-text-alt;
+$color-bg-footer-bar: desaturate(lighten($color-main, 5%), 12%);
+$color-footer-text: $color-text-alt;
+
+// Navigation
+
+$nav-border-color: lighten($color-border-main, 30%);
+$nav-bg-color: transparent;
+$nav-bg-light-color: lighten($color-bg-alt, 40%);
+$nav-bg-dark-color: lighten($color-bg-alt, 15%);
+$nav-focus-bg-color: lighten($color-bg-alt, 25%);
+$nav-disabled-bg-color: lighten($color-bg-alt, 35%);
+$nav-text-color: $color-text-alt;
+
+
+// Deprecated: this swatches are deprecated and will soon disappear! 
+// *** DO NOT USE ***
+
 // Dominants
 
 $domColor1: #000;             // black

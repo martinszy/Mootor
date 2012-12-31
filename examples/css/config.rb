@@ -1,16 +1,15 @@
 
 # Set this to the root of your project when deployed:
 http_path = "."
-css_dir = "../"
+css_dir = "."
 sass_dir = ""
-images_dir = "../../img"
+images_dir = "../img"
 #http_images_dir = "../img"
-javascripts_dir = "../../js"
+javascripts_dir = "../js"
 
 
-#add a path to the list of sass import paths for your compass project
-add_import_path "../../../source/_sass"
-add_import_path "base"
+#add dd a path to the list of sass import paths for your compass project
+add_import_path "../mootor/source/_sass"
 
 # You can select your preferred output style here (can be overridden via the command line):
 #output_style = :expanded # :expanded or :nested or :compact or :compressed
@@ -25,9 +24,3 @@ relative_assets = true
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 line_comments = true
-
-# If you prefer the indented syntax, you might want to regenerate this
-# project again passing --syntax sass, or you can uncomment this:
-# preferred_syntax = :sass
-# and then run:
-# sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass

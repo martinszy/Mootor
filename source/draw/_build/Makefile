@@ -1,16 +1,16 @@
 PACKAGE=draw
 VERSION=lastest
-RELEASE_DIR=_release
-COPY_DIR=../../js/plugins
+RELEASE_DIR=../_release
+COPY_DIR=../../../js/plugins
 RELEASE_FILE= $(PACKAGE)-$(VERSION).js
 RELEASE_FILE_MIN= $(PACKAGE)-$(VERSION).min.js
 COPY_FILE=$(PACKAGE).js
 
 all:
 	@@echo "Building..."
-	@@cat js/_header.js\
-	      js/draw.js\
-	      js/_footer.js\
+	@@cat _header.js\
+	      ../draw.js\
+	      _footer.js\
 	      > $(RELEASE_DIR)/$(RELEASE_FILE)
 	@@echo "Build completed."
 	@@cp $(RELEASE_DIR)/$(RELEASE_FILE) $(COPY_DIR)/$(COPY_FILE)

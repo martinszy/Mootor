@@ -1,6 +1,49 @@
-// User Interface plugins
+/*
+ *  Extended classes
+ */
+.moo-ui-input-container {
+    @include float-right;
+    border: 1px solid #666;
+    border-radius: 5px;
+    background-color: #FFF;
+    position: relative;
+    width: 75%;
+}
+.moo-ui-input {
+    -webkit-appearance: none;  /* Remove default iOS shadow */
+    // -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: none; 
+    background: none; 
+    font-size: 1.5em; 
+    line-height: 1.5em;
+    width: 100%;
+    &:focus {
+        border: rgba(0, 0, 0, 0) none;
+    }
+}
+
+/*
+ *  Cleanbox is the styling of the icon link used to "clean" a text input
+ */
+.cleanbox {
+    display: block;
+    padding: 0 0.35em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #666;
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 1.5em;
+    text-decoration: none;
+}
 
 @import "mootor.ui.form";
+@import "mootor.ui.text";
+@import "mootor.ui.textarea";
+@import "mootor.ui.select";
+@import "mootor.ui.radio";
+@import "mootor.ui.checkbox";
 @import "mootor.ui.switch";
 @import "mootor.ui.tooltip";
 @import "mootor.ui.overlay";

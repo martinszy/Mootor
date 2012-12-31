@@ -1,0 +1,19 @@
+@import "mootor.nav";
+
+/* 
+ * Header
+ */  
+
+@include header($navDisplay: float);
+@include headerStyle();
+
+/* 
+ * Panels
+ */   
+.moo-panels {
+    background: #333 url(../img/bg/panels.png); 
+}
+
+.moo-panel  {
+    background: #fff url(../img/bg/panel.png); 
+}

@@ -1,0 +1,12 @@
+// Story list
+
+.story-list {
+    opacity: 0;
+    height: 0;
+    position: absolute;
+}
+
+.story-list.visible {
+    opacity: 1;
+    height: 1;
+}
