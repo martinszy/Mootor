@@ -97,7 +97,7 @@ $header-height-h: 80px;
         $context: ios,
         $theme: default,
         $class: '.moo-header',
-        $background-url: '../img/bg/header.png'
+        $background-url: '../img/default/nav-header.png'
     ){
 
     #{$class} {
@@ -111,6 +111,15 @@ $header-height-h: 80px;
                 font-weight: lighter;
             }
             
+            nav a {
+                @if $dark-theme {
+                    color: $color-main-darkbg;                
+                } else {
+                    color: $color-main;                                    
+                }
+                font-weight: bold;
+            }
+            
             @if $context == ios {
             
                 background: url($background-url);
@@ -122,6 +131,24 @@ $header-height-h: 80px;
     
                 .moo-nav-back {
                     @include transition(opacity, .5s);    
+                    border-left: 0;
+                    border-top: 1px solid $color-border-main;
+                    border-right: 1px solid $color-border-main;
+                    margin: .8em 1.7em;
+                    border-bottom: 1px solid $color-border-main;
+                    @include border-radius(.1368em .35em .35em .1368em);  
+                    &:before {
+                        border-left: 1px solid $color-border-main;
+                        border-bottom: 1px solid $color-border-main;
+                        @include border-radius (0 5em .1368em 1em);
+                        @include box-shadow(rgba(white, .1) 0 1px 0 0);
+                        position: absolute;
+                        top: 4px;
+                        left: -12px;
+                        width: 25px;
+                        height: 25px;
+                        @include transform(rotate(45deg));
+                    }                
                 }
     
                 .moo-header-wrapper {

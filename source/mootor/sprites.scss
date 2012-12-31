@@ -10,7 +10,7 @@ $mootor-repeat: no-repeat !default;
 
 // Mootor sprites
 
-$mootor-sprites: sprite-map("ui/icons/*.png",
+$mootor-sprites: sprite-map("default/*.png",
   $position: $mootor-position,
   $spacing: $mootor-spacing,
   $repeat: $mootor-repeat);
@@ -37,6 +37,6 @@ $mootor-sprites: sprite-map("ui/icons/*.png",
   background-repeat: no-repeat;
   $pos: sprite-position($mootor-sprites, $name,  $offset-x,  $offset-y);
   background-position: nth($pos, 1) nth($pos, 2);
-  width: image-width("ui/icons/#{$name}.png");
-  height: image-height("ui/icons/#{$name}.png");
+  width: image-width("default/#{$name}.png");
+  height: image-height("default/#{$name}.png");
 }
