@@ -40,3 +40,15 @@ $mootor-sprites: sprite-map("default/*.png",
   width: image-width("default/#{$name}.png");
   height: image-height("default/#{$name}.png");
 }
+
+@mixin _mootor-sprite($name) {
+    @media screen and ($media-query-0) {
+        @include mootor-sprite($name);
+    }
+    @media screen and ($media-query-1) {
+        @include mootor-sprite($name);
+    }
+    @media screen and ($media-query-2) {
+        @include mootor-sprite($name + "x2");
+    }    
+}

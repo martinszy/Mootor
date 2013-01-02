@@ -1,0 +1,13 @@
+$media-query-0: "max-width: 500px";
+$media-query-1: "min-width: 501px";
+$media-query-2: "min-width: 1024px ";
+
+// Override some Compass functions
+
+@mixin border-radius($options) {
+    border-radius: $options;
+}
+
+@mixin text-shadow($options) {
+    text-shadow: $options;
+}

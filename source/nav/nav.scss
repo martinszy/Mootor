@@ -4,10 +4,6 @@
 @import "mootor.nav.footer";
 @import "mootor.nav.panels";
 
-$media-query-0: "max-width: 480px";
-$media-query-1: "max-width: 1023px";
-$media-query-2: "min-width: 1024px ";
-
 @mixin base-anchor {
     text-decoration: none ;
 }

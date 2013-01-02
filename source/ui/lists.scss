@@ -15,7 +15,7 @@
     $color-border-top: transparent,
     $color-border-bottom: transparent,
     $item-margin: 1em,
-    $item-padding: 1em 1.5em,
+    $item-padding: 1.2em 1.7em,
     $shadows: false) {
 
     li {
@@ -51,7 +51,7 @@
         li {
             background-color: $color-bg-rounded;
             border: 1px solid $color-border-rounded;
-            @include border-radius(9px);
+            @include border-radius(7px);
             margin: $item-margin;
         }
     }
@@ -59,7 +59,8 @@
     @if $shadows {
         li {
             border: 0;
-            box-shadow: #bbb 3px 2px 4px -2px, #eee -2px -1px 1px 0px;
+            background: -webkit-linear-gradient(white 85%, #f1f1f1 120%);
+            box-shadow: #bbb 3px 2px 3px -2px, #eee -2px -1px 1px 0px;
         }
     }
 }

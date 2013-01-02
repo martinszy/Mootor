@@ -68,7 +68,12 @@ $.extend({
                 return false;
             };
     
+            $anchorBack.onTapStart(function(gesture) {
+                $(gesture.el).setClass("moo-hover");
+            });        
+
             $anchorBack.onTapEnd(function(gesture) {
+                $(gesture.el).removeClass("moo-hover");
                 navInstance.goBack();
             });        
         }

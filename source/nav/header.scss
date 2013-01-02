@@ -1,6 +1,7 @@
-$header-height-l: 50px;
-$header-height-m: 60px;
-$header-height-h: 80px;
+@import "mootor.core";
+
+$header-height: 40px;
+$header-height-h: 44px;
 
 @mixin header(
 
@@ -31,16 +32,17 @@ $header-height-h: 80px;
             white-space: nowrap;       
             padding: 0 4em;
             width: 85%;
-            z-index: 9999; 
+            z-index: 9998; 
             position: fixed;
             top:0;
-            margin: .4em;
             display: block;
-
+            @include headerTitleMargin();
         }    
 
         // Nav back button       
         .moo-nav-back {
+            position: absolute;
+            z-index: 9999;
             opacity: 0;
             &.moo-visible {
                 opacity: 1;    
@@ -91,7 +93,7 @@ $header-height-h: 80px;
 }
 
 
-// Styles
+// Default styles
 
 @mixin headerStyle(
         $context: ios,
@@ -107,7 +109,7 @@ $header-height-h: 80px;
         @if $theme == default {
         
             h1 {
-                letter-spacing: -1pt;
+                letter-spacing: -0.075em;
                 font-weight: lighter;
             }
             
@@ -128,32 +130,14 @@ $header-height-h: 80px;
                 h1 {
                     text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
                 }
-    
+                
                 .moo-nav-back {
-                    @include transition(opacity, .5s);    
-                    border-left: 0;
-                    border-top: 1px solid $color-border-main;
-                    border-right: 1px solid $color-border-main;
-                    margin: .8em 1.7em;
-                    border-bottom: 1px solid $color-border-main;
-                    @include border-radius(.1368em .35em .35em .1368em);  
-                    &:before {
-                        border-left: 1px solid $color-border-main;
-                        border-bottom: 1px solid $color-border-main;
-                        @include border-radius (0 5em .1368em 1em);
-                        @include box-shadow(rgba(white, .1) 0 1px 0 0);
-                        position: absolute;
-                        top: 4px;
-                        left: -12px;
-                        width: 25px;
-                        height: 25px;
-                        @include transform(rotate(45deg));
-                    }                
+                    @include moo-nav-back();
                 }
     
                 .moo-header-wrapper {
                     @include headerHeight();
-                    box-shadow: black 0px -2px 10px -7px inset;
+                    box-shadow: rgba(0,0,0,.5) 0px -2px 5px -3px inset;
                 }
     
             }
@@ -164,40 +148,99 @@ $header-height-h: 80px;
 
 // Utilities 
 
-@mixin headerHeightFontSize() {
-    $ratio: 2.3;
-    @media screen and ( $media-query-0 ) {
-        font-size: $header-height-l/$ratio;
-    }
-    @media screen and ( $media-query-1 ) {
-        font-size: $header-height-m/$ratio;
-    }    
-    @media screen and ( $media-query-2 ) {
-        font-size: $header-height-h/$ratio
-    }    
-}
-
 @mixin headerHeight() {
     @media screen and ( $media-query-0 ) {
-        height: $header-height-l;
+        height: $header-height;
     }
     @media screen and ( $media-query-1 ) {
-        height: $header-height-m;
+        height: $header-height-h;
     }    
     @media screen and ( $media-query-2 ) {
-        height: $header-height-h
+        height: $header-height-h;
+    }  
+}
+
+
+@mixin headerHeightFontSize() {
+    @media screen and ( $media-query-0 ) {
+        font-size: 2em;
+    }
+    @media screen and ( $media-query-1 ) {
+        font-size: 2.5em;
     }    
+    @media screen and ( $media-query-2 ) {
+        font-size: 2.5em;
+    }      
 }
 
 @mixin headerPadding() {
     
     @media screen and ( $media-query-0 ) {
-        padding: $header-height-l/5 $header-height-l/3.5;
+        padding: 1em;
     }
     @media screen and ( $media-query-1 ) {
-        padding: $header-height-m/6.25 $header-height-m/3.5;
+        padding: 2em;
     }    
     @media screen and ( $media-query-2 ) {
-        padding: $header-height-h/4.25 $header-height-h/3.5;
+        padding: 1.7em 2em;
     }   
+}
+
+@mixin headerTitleMargin() {
+    
+    @media screen and ( $media-query-0 ) {
+        margin: .2em 0 0;
+    }
+    @media screen and ( $media-query-1 ) {
+        margin: .1em 0 0;
+    }    
+    @media screen and ( $media-query-2 ) {
+        margin: .1em 0 0;
+    }   
+}
+
+@mixin moo-nav-back(
+    $height: 32px,
+    $color-border-main: rgba(0,0,0,.2)
+)
+{
+    height: $height;
+    @include transition(opacity .5s);    
+    font-size: 1.3em;
+
+    border-left: 0;
+    border-top: 1px solid $color-border-main;
+    border-right: 1px solid $color-border-main;
+    border-bottom: 1px solid $color-border-main;
+
+    padding: 0.4em 1em 0 .5em;
+    margin: .45em 1.7em;
+
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+
+    @include border-radius(.1368em .35em .35em .1368em);  
+    @include box-shadow(rgba(white, .2) 0 1px 0 0, rgba(255, 255, 255, 0.2) 1px 0px 0px 0);
+
+    &:before {
+
+        border-left: 1px solid $color-border-main;
+        border-bottom: 1px solid $color-border-main;
+        @include border-radius (0 6em 0 1.5em);
+        @include box-shadow(rgba(white, .2) 0 1px 0 0);
+        position: absolute;
+        top: 4px;
+        left: -11px;
+        width: $height - 11;
+        height: $height - 11;
+
+        @include transform(rotate(45deg));
+    } 
+    
+    &.moo-hover {
+        text-shadow: white 0px 0px 15px;
+        @include box-shadow(rgba(white, .4) 0 1px 0 0, rgba(255, 255, 255, 0.4) 1px 0px 0px 0);
+        &:before {
+            @include box-shadow(rgba(white, .4) 0 1px 0 0);
+        }
+    }               
 }
