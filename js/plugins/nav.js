@@ -639,6 +639,9 @@ $.extend({
                 $(gesture.el).removeClass("moo-hover");
                 navInstance.goBack();
             });        
+            $anchorBack.onDragEnd(function(gesture) {
+                $(gesture.el).removeClass("moo-hover");
+            });        
         }
         
     },

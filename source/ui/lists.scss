@@ -61,6 +61,12 @@
             border: 0;
             background: -webkit-linear-gradient(white 85%, #f1f1f1 120%);
             box-shadow: #bbb 3px 2px 3px -2px, #eee -2px -1px 1px 0px;
+            
+            &.moo-hover {
+                opacity: .7;
+                background: #fff;
+             }
         }
+        
     }
 }

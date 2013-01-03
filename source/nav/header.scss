@@ -44,7 +44,9 @@ $header-height-h: 44px;
             position: absolute;
             z-index: 9999;
             opacity: 0;
+            top: -100em;
             &.moo-visible {
+                top: 0;
                 opacity: 1;    
             }
          }
@@ -64,7 +66,7 @@ $header-height-h: 44px;
             }
         }
         nav a {
-            padding: .5em 1em;
+            padding: 0 .55em;
             font-size: 1.5em;            
 
             @if $navDisplay == inline {
