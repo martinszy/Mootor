@@ -7,7 +7,7 @@ require 'rubygems'
 require 'fssm'
 
 # Monitor
-FSSM.monitor('.' ,'*.js') do
+FSSM.monitor('.' ,'../*.js') do
   update do |base|
     command = "make -f MakefileFull"
     %x{#{command}}

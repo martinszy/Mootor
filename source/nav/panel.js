@@ -100,10 +100,13 @@ $.extend({
                     }
                 }, navInstance);
             }, 1);
-            
+
             if (typeof panel.onLoad === "function") {
                 panel.onLoad();
-                panel.height = panel.el.offsetHeight
+                // FIXME CHECK
+                window.setTimeout(function() {
+                    panel.height = panel.el.offsetHeight;
+                }, 1000);
             }
 
         },
@@ -212,7 +215,7 @@ $.extend({
                     x: item.x
                 }, self);
             }
-        },
+        }, 
 
     /**
      * Set styles when Header or Footer is active
@@ -225,3 +228,4 @@ $.extend({
     }
 
 }, Panel);
+
