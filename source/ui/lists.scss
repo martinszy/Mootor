@@ -16,17 +16,9 @@
     $color-border-bottom: transparent,
     $item-margin: 1em,
     $item-padding: 1.2em 1.7em,
+    $item-li: true,
     $shadows: false) {
 
-    li {
-        background-color: $color-list-background;
-        border-top: 1px solid $color-border-top;
-        border-bottom: 1px solid $color-border-bottom;
-        text-align: left;
-        padding: $item-padding;
-        position: relative;
-        overflow: hidden;
-    }
     h2 {
         margin: 0;    
     }
@@ -47,26 +39,67 @@
             
         }
     }
-    @if $rounded {
+    
+    @if $item-li {
         li {
-            background-color: $color-bg-rounded;
-            border: 1px solid $color-border-rounded;
-            @include border-radius(7px);
-            margin: $item-margin;
+            @include list-item(
+                $has-image, 
+                $rounded, 
+                $color-bg,
+                $border-top,
+                $border-bottom,
+                $color-bg-rounded,
+                $color-border-rounded,
+                $color-list-background,
+                $color-border-top,
+                $color-border-bottom,
+                $item-margin,
+                $item-padding,
+                $shadows
+            );
         }
+    }
+}
+
+@mixin list-item(
+    $has-image:false, 
+    $rounded:false, 
+    $color-bg: #f0f0f0, 
+    $border-top: #f5f5f5, 
+    $border-bottom: #DDD, 
+    $color-bg-rounded: #FFF, 
+    $color-border-rounded: #CCC,
+    $color-list-background: transparent,
+    $color-border-top: transparent,
+    $color-border-bottom: transparent,
+    $item-margin: 1em,
+    $item-padding: 1.2em 1.7em,
+    $shadows: false) {
+
+    background-color: $color-list-background;
+    border-top: 1px solid $color-border-top;
+    border-bottom: 1px solid $color-border-bottom;
+    text-align: left;
+    padding: $item-padding;
+    position: relative;
+    overflow: hidden;   
+
+    @if $rounded {
+        background-color: $color-bg-rounded;
+        border: 1px solid $color-border-rounded;
+        @include border-radius(7px);
+        margin: $item-margin;
     }
     
     @if $shadows {
-        li {
-            border: 0;
-            background: -webkit-linear-gradient(white 85%, #f1f1f1 120%);
-            box-shadow: #bbb 3px 2px 3px -2px, #eee -2px -1px 1px 0px;
-            
-            &.moo-hover {
-                opacity: .7;
-                background: #fff;
-             }
-        }
+        border: 0;
+        background: -webkit-linear-gradient(white 85%, #f1f1f1 120%);
+        box-shadow: #bbb 3px 2px 3px -2px, #eee -2px -1px 1px 0px;
         
+        &.moo-hover {
+            opacity: .7;
+            background: #fff;
+        }        
     }
+    
 }
