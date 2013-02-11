@@ -171,7 +171,8 @@ $.extend({
                 
             links = $(self.el).find("." + navInstance._config.navClass);
             for (i = 0; i < links.length; i++) {
-                if (links[i].getAttribute("href").replace("#","") !== "") {
+                // FIXME CHECK
+                if (links[i].getAttribute("href").indexOf("#") > -1) {
                     navigationItems.push(links[i]);
                 }
             }
