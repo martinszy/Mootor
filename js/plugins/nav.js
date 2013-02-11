@@ -854,10 +854,6 @@ $.extend({
 
             if (typeof panel.onLoad === "function") {
                 panel.onLoad();
-                // FIXME CHECK
-                window.setTimeout(function() {
-                    panel.height = panel.el.offsetHeight;
-                }, 1000);
             }
 
         },
@@ -940,13 +936,19 @@ $.extend({
      */
     move: function(self, item, gesture) {
             var isPermitted = false;
-    
+            
             self._config.y = self._config.y + (gesture.y - gesture.lastY);
             
             // FIXME CHECK
             var panel = self.items[self.current],
-                maxdist = panel.height - self._config.height,
+                maxdist,
                 i;
+
+            // FIXME CHECK
+            panel.height = panel.el.offsetHeight;
+
+            maxdist = panel.height - self._config.height;
+
             if (self.header !== undefined) {
                 maxdist += self.header.height;
             }
