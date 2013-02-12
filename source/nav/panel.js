@@ -158,10 +158,6 @@ $.extend({
             var panel = self.items[self.current],
                 maxdist = panel.height - self._config.height,
                 i;
-
-            if (self.header !== undefined) {
-                maxdist += self.header.height;
-            }
                 
             if (gesture.type === "dragEnd") {
 
