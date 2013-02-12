@@ -805,57 +805,67 @@ $.extend({
                 hiddenContent,
                 i,
                 navInstance_config = navInstance._config,
-                block;
+                block,
+                continueLoad = true;
                                     
             // Current panel
             panel = navInstance.items[navInstance.current];
             // Back panel 
             back = navInstance.items[navInstance_config.back];
-            
-            // Display panel
-            $(panel.el).show();
-           
-            // Initial position for translate
-            positionX = navInstance_config.width + navInstance_config.margin;
-
-            if (navInstance.current !== 0) {
-                navInstance_config.anchorBack.show();           
-            } else {
-                navInstance_config.anchorBack.hide();
-            }
-                                
-            if (navInstance_config.direction === 0 || navInstance_config.back === 0) {
-            
-                // Right
-
-                _translate({el: panel.el, x: positionX}, navInstance);
-                panel.x = positionX;
-                positionX = -positionX;
-            
-            } else {
-            
-                // Left
-            
-                _translate({el: panel.el, x: -positionX}, navInstance);
-                panel.x = -positionX;
-                positionX = positionX;
-
-            }
-
-            window.setTimeout(function () {
-                _translate({
-                    el: navInstance.el,
-                    duration: navInstance_config.transitionDuration,
-                    x: positionX,
-                    callback: function() {
-                        _loadCallback(navInstance, panel, back);
-                    }
-                }, navInstance);
-            }, 1);
 
             if (typeof panel.onLoad === "function") {
-                panel.onLoad();
+                if (panel.onLoad() === false) {
+                    // Cancel panel load
+                    continueLoad = false;
+                    navInstance.current = navInstance.history[navInstance.history.length-1];
+                    navInstance.history.pop();
+                    navInstance_config.isMoving = false;                 
+                }
             }
+            
+            if (continueLoad === true) {
+                // Display panel
+                $(panel.el).show();
+               
+                // Initial position for translate
+                positionX = navInstance_config.width + navInstance_config.margin;
+    
+                if (navInstance.current !== 0) {
+                    navInstance_config.anchorBack.show();           
+                } else {
+                    navInstance_config.anchorBack.hide();
+                }
+                                    
+                if (navInstance_config.direction === 0 || navInstance_config.back === 0) {
+                
+                    // Right
+    
+                    _translate({el: panel.el, x: positionX}, navInstance);
+                    panel.x = positionX;
+                    positionX = -positionX;
+                
+                } else {
+                
+                    // Left
+                
+                    _translate({el: panel.el, x: -positionX}, navInstance);
+                    panel.x = -positionX;
+                    positionX = positionX;
+    
+                }
+    
+                window.setTimeout(function () {
+                    _translate({
+                        el: navInstance.el,
+                        duration: navInstance_config.transitionDuration,
+                        x: positionX,
+                        callback: function() {
+                            _loadCallback(navInstance, panel, back);
+                        }
+                    }, navInstance);
+                }, 1);                
+            }
+
 
         },
     
