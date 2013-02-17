@@ -348,22 +348,15 @@ localStorage.prototype = {
             result,
             self = this;
                             
-        // Set record id
-        if (obj.id === undefined) {
-            
-            // A copy of the object. If any value is an object and
-            // that object has an id, then save the id and not the object
-            for (i in obj) {
-                if (typeof obj[i] === "object" && obj[i].id !== undefined) {
-                    objCopy[i] = obj[i].id;
-                } else {
-                    objCopy[i] = obj[i];
-                }
-            }           
-
-        } else {
-            objCopy = obj;
-        }
+        // A copy of the object. If any value is an object and
+        // that object has an id, then save the id and not the object
+        for (i in obj) {
+            if (typeof obj[i] === "object" && obj[i].id !== undefined) {
+                objCopy[i] = obj[i].id;
+            } else {
+                objCopy[i] = obj[i];
+            }
+        }           
 
         // Create a new record from data model
         result = new this.model(objCopy);

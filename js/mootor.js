@@ -267,6 +267,17 @@ var $ = (function () {
            }
        },
 
+      /**
+       * Check if objects is Array
+       * @method isArray
+       * @param {object} obj Object
+       * @example 
+       *        $.isArray([1,2,3])
+       */
+       isArray: function(obj) {
+           return Object.prototype.toString.call( obj ) === '[object Array]';
+       }
+
    }, $);
 
    // Inherits Array prototype
@@ -456,7 +467,7 @@ var $ = (function () {
        */
       find: function(query) {
          return new Moo(query, this.el);
-      }      
+      }
       
 	});
 
