@@ -1,0 +1,41 @@
+@include m-all-fields("m-option");
+
+.m-option-hidden {
+    display: none;
+}
+
+.m-option-icon {
+	position: absolute;
+	right: 0;
+    margin-top: 10px;
+}
+
+.m-option-cover {
+    border-top: 1px solid;
+    @extend .m-border-color-gray-lighter;
+    &:first-child {
+        border: none;
+    }
+    label {
+        // FIXME CHECK: important
+        width: auto !important;
+        display: inline-block !important;
+    }
+}
+
+
+.m-form-left-labels input.m-option {
+	float: left;
+
+    .m-option-cover-item {
+		height: 1.4em;
+		display: inline-block;
+		overflow: hidden;
+	}
+}	
+
+.m-form-left-labels {
+    input.m-option {
+    	top: -2em;
+    }    
+}

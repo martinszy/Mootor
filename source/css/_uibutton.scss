@@ -1,0 +1,60 @@
+@import "variables";
+
+.m-button {
+    font-size: 1em;
+    line-height: 2em;
+    border-width: 0;
+    border-radius: 0.5em;
+    margin: $default-margin 0;
+    display: inline-block;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+    border-width: 1px;
+    border-style: solid;
+    box-sizing: border-box;
+    padding: 4px 10px;
+    line-height: 30px;
+    min-height: 40px;
+    min-width: 32px;
+    text-align: center;
+
+    /* For icons - FIXME CHECK: Find a better way to select icons */
+    span {
+        top: 2px;
+        position: relative;
+    }
+
+}
+
+.m-button:link {
+    text-decoration: none;
+}
+
+
+.m-button:focus,
+.m-button:active {
+    outline: 0;
+}
+
+/* SIZE */ 
+.m-button-small {
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 32px;
+    min-width: 110px;
+    font-size: 0.8em;
+}
+
+/* WIDTH */ 
+.m-button-fullwidth {
+    @extend .m-button;
+    width: 100%;
+    border-radius: 0;
+}
+
+.m-button-block {
+    @extend .m-button;
+    width: 100%;
+    //margin-left: 10px;
+    //margin-right: 10px;
+}

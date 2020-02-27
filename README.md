@@ -1,80 +1,35 @@
-
 # Mootor
 
-## HTML5 library for application development
+## HTML5 library for mobile application development
 
-The main purpose of this project is to create a simple HTML5 library for application development, that helps web professionals to build fully customizable apps, for use in browsers or embedded in mobile applications.
+Mootor is minimalist HTML5 library for mobile application development.
 
-Current modules (mootor.js):
+## Demo
 
-* core - Core functions and query selector
-* gestures - Gestures (ex: onTapStart, onTapEnd, ...)
-* fx - Visual FX (ex: translateFx, ...)
+* http://emi420.github.io/Mootor/demo/
 
-and plugins:
+## Documentation
 
-* ui.js   - User interface
-* nav.js  - Navigation
-* app.js  - Application
-* geo.js  - Geopositioning
-* draw.js - Drawing
+### Getting started
 
-## About Mootor
+* https://github.com/emi420/Mootor/blob/master/getting-started.md
 
-The key features are:
+### UI components
 
-* Fast performance
-* Easy to use
-* Fully customizable, strongly considering design issues
+* https://github.com/emi420/Mootor/blob/master/doc-ui.md
 
-## Examples
+### JavaScript
 
-See inside the "examples" folder, **you will need a web server (or UIWebView)** if you want to load views. 
+* https://github.com/emi420/Mootor/blob/master/doc-js.md
 
-If you want to run the examples in a desktop browser, **you will need to emulate touch events**, for example using the "Emulate touch events" in Chrome Developer Tools.
+## About
 
-## Useful info
-
-Currently compatibility is WebKit or Gecko based browsers (iOS, Android, Mozilla)
-
-## Only for testing
-
-We are in a development stage, THIS SOFTWARE IS ONLY FOR TESTING.
-
-## How can I make changes in the source code and compile it?
-
-You will need the following tools:
-
-Required:
-
-* The "make" command for compile JavaScript modules
-* Haml for compile .haml templates
-* Ruby & Compass Framework for compile .scss stylesheets
-
-Optional:
-
-* Java for minifying JavaScript code using YUI Compressor 
-
-## Design
-
-Mootor team **LOVES** design, and we aim to make delightful user interfaces. 
-We are working with the last tools like Haml and Compass, to provide maximum 
-efficiency and fully customization.
-
-## How can I help?
-
-You can help this way:
-
-* Suggest and/or build new features
-* Help to find and/or fix issues
-* Fork + Pull request
-
-## Bugs
-
-Please use GitHub to report any bugs found. 
+* We received public founding by MinCyT ([mincyt.gob.ar](http://mincyt.gob.ar))
 
 ## License
 
 You may use any Mootor project under the terms of either the MIT License or the GNU General Public License (GPL) Version 3.
 
 (c) 2012 Emilio Mariscal
+
+Want to contribute? or use this software? fork the project, or write me to emi420 [at] gmail.com

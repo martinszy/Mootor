@@ -1,0 +1,37 @@
+@mixin make_color_variants($name, $base) {
+	@include make_color($name + "-lighter",lighten($base,23%));
+	@include make_color($name + "-light",lighten($base,10%));
+	@include make_color($name,$base);
+	@include make_color($name + "-dark",darken($base,12%));
+	@include make_color($name + "-darker",darken($base,26%));
+}
+
+@mixin make_color($name, $base) {
+	.m-bg-color-#{$name} {
+		background: $base;
+	}
+
+	.m-border-color-#{$name} {
+        // FIXME CHECK: important
+		border-color: $base !important;
+	}
+    
+    // FIXME CHECK: the same?
+	.m-color-#{$name},
+    .m-color-#{$name}-fg {
+		color: $base;
+	}
+}
+
+@include make_color_variants("gray", #968E89);
+@include make_color_variants("primary", #66B2B8);
+@include make_color_variants("success", #6DBCA1);
+@include make_color_variants("warning", #F1CE03);
+@include make_color_variants("info", #ED9A3D);
+@include make_color_variants("danger", #F04930);
+
+@include make_color("white", #FFFFFF);
+@include make_color("cream", #F5F5F1);
+@include make_color("black", #2C2927);
+@include make_color("transparent", rgba(0,0,0,0));
+

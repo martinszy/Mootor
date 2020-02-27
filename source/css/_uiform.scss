@@ -1,0 +1,98 @@
+@mixin m-all-fields($class, $height: auto) {
+    .m-form-left-labels {
+        .#{$class} {
+            width: 70%;
+        }
+    }
+    .m-form-top-labels {
+        .#{$class} {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    .#{$class} {
+        font-size: 1em;
+        background-color: transparent;
+        border: none;
+        font-family: sans-serif;
+        box-sizing: border-box;
+        padding-top: 0.5em;
+        padding-bottom: 1em;
+        padding-left: 0;
+
+        height: $height;
+        
+        &:disabled {
+            opacity: 0.2;
+        }
+
+        &:focus {
+            outline: 0;
+        }
+
+        &::-webkit-input-placeholder { 
+            @extend .m-color-gray;
+        }
+
+    }
+}
+
+.m-form {
+    border-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+    .m-form-left-labels .m-field {
+        overflow: hidden;
+        padding-top: 0.67em;
+        label {
+            float: left;
+            width: 30%;
+        }  
+    } 
+    .m-form-top-labels .m-field {
+        label {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    .m-field {
+        position: relative;
+        border-bottom: 1px solid;
+        @extend .m-border-color-gray-lighter;
+        display: block;
+
+        label {
+            font-weight: bold;
+            box-sizing: border-box;
+            padding: 0.67em 0 0;
+            font-size: 1em;
+            overflow-wrap: break-word;
+        }
+        
+        &.m-error {
+            @extend .m-bg-color-danger-lighter;
+        }
+        &.m-warning {
+            @extend .m-bg-color-warning-lighter;
+        }
+        &.m-success {
+            @extend .m-bg-color-success-lighter;
+        }
+
+    }
+
+}
+
+@import "uiformtext";
+@import "uiformtextarea";
+@import "uiformselect";
+@import "uiformdraw";
+@import "uiformcheckbox";
+@import "uiformoption";
+@import "uiformdate";
+@import "uiformtime";
+@import "uiformcamera";
+@import "uiformgeo";
+

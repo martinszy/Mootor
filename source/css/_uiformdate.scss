@@ -1,0 +1,20 @@
+input[type=date].m-date-hidden,
+input[type=datetime-local].m-date-hidden,
+input[type=month].m-date-hidden {
+	opacity: 0.001;
+    top: 0;
+    width: 100%;
+    position: absolute;
+    top: 2.4em;
+}
+
+
+input[type=date].m-date,
+input[type=datetime-local].m-date,
+input[type=month].m-date {
+    width: 100%;
+    border: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    font-size: 1em;
+}
